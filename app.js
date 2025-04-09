@@ -21,6 +21,7 @@ const usersRouter = require('./routes/users');
 const loginRouter = require('./routes/login'); // 登入
 const profileRouter = require('./routes/profile'); // 個人資料相關
 const studyRouter = require('./routes/study'); // 讀書
+const transcribeRouter = require('./routes/transcribe'); // 語音轉文字
 
 
 // 使用routes
@@ -29,6 +30,7 @@ app.use('/users', usersRouter);
 app.use('/login', loginRouter); // 登入route放到 /login
 app.use('/profile', profileRouter); // 個人資料route放到 /profile
 app.use('/api/study', studyRouter); 
+app.use('/api/transcribe', transcribeRouter); // 新增的 endpoint
 
 // 其他 Express 的東西
 app.use(logger('dev'));
