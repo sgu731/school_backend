@@ -24,7 +24,7 @@ const authenticateToken = (req, res, next) => {
     }
   };
 
-// 轉錄路由（需要 JWT 驗證）
+// 轉錄功能
 router.post('/transcribe', authenticateToken, async (req, res) => {
     console.log("轉錄中");
     try {
@@ -57,7 +57,7 @@ router.post('/transcribe', authenticateToken, async (req, res) => {
             headers: {
                 ...formData.getHeaders()
             },
-            timeout: 30000
+            timeout: 300000
         });
 
         const result = response.data;
