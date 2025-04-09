@@ -43,11 +43,11 @@ router.post('/transcribe', authenticateToken, async (req, res) => {
             });
         }
 
-        // 轉發給 Python 服務
+        // 連到 Python 服務
         // 使用 form-data
         const formData = new FormData();
         const stream = new PassThrough();
-        stream.end(audioFile.data); // 將 Buffer 轉為流
+        stream.end(audioFile.data);
         formData.append('file', stream, {
             filename: audioFile.name,
             contentType: audioFile.mimetype
