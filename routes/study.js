@@ -9,12 +9,13 @@ const authenticateToken = (req, res, next) => {
   if (!token) {
     return res.status(401).json({ message: 'Access denied. No token provided.' });
   }
-
+  console.log('收到的 token:', token);
   try {
     const user = verifyToken(token);
     req.user = user;
     next();
   } catch (err) {
+    console.error('JWT 驗證失敗:', err); 
     return res.status(403).json({ message: 'Invalid or expired token' });
   }
 };
