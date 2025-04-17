@@ -20,15 +20,15 @@ const authenticateToken = (req, res, next) => {
 // 取得某天的所有計畫
 router.get('/', authenticateToken, (req, res) => {
   const userId = req.user.userId;
-  const { date } = req.query; // eg: 2025-04-14
+  const { start, end } = req.query;
   const query = `
     SELECT s.*, sub.name AS subject_name
     FROM study_schedule s
     JOIN subjects sub ON s.subject_id = sub.id
-    WHERE s.user_id = ? AND DATE(s.start_time) = ?
+    WHERE s.user_id = ? AND DATE(s.start_time) BETWEEN ? AND ?
     ORDER BY s.start_time ASC
   `;
-  db.query(query, [userId, date], (err, results) => {
+  db.query(query, [userId, start, end], (err, results) => {
     if (err) return res.status(500).json({ error: err });
     res.json({ schedule: results });
   });
