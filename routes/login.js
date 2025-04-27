@@ -23,7 +23,7 @@ router.post('/', (req, res) => {
       );
       console.log("登入成功");      
       // 這裡直接把名字跟其他資訊寫在 json 裡
-      return res.json({ message: 'Login successful', token, name: user.name });
+      return res.json({ message: 'Login successful', token, name: user.name, avatar: user.avatar });
     } else {
       return res.status(401).json({ message: 'Invalid username or password' });
     }
