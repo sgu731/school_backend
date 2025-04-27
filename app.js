@@ -27,8 +27,8 @@ const scheduleRouter = require('./routes/schedule');// 讀書計畫
 // 使用routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/login', loginRouter); // 登入route放到 /login
-app.use('/profile', profileRouter); // 個人資料route放到 /profile
+app.use('/login', loginRouter);
+app.use('/profile', profileRouter);
 app.use('/api/study', studyRouter); 
 app.use('/api/transcribe', transcribeRouter); // 新增的 endpoint
 app.use('/api/schedule', scheduleRouter);
