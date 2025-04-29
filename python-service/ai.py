@@ -31,7 +31,7 @@ async def analyze_transcription(
                 "HTTP-Referer": YOUR_SITE_URL,
                 "X-Title": YOUR_SITE_NAME,
             },
-            #這可以改
+            # 這可以改
             model="deepseek/deepseek-chat-v3-0324:free",
             messages=[
                 {"role": "system", "content": "You are a helpful assistant that organizes text into notes."},
