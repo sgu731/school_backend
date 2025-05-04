@@ -21,6 +21,7 @@ const usersRouter = require('./routes/users');
 const loginRouter = require('./routes/login'); // 登入
 const profileRouter = require('./routes/profile'); // 個人資料相關
 const studyRouter = require('./routes/study'); // 讀書
+const roomsRoutes = require('./routes/rooms'); // 自習室
 const transcribeRouter = require('./routes/transcribe'); // 語音轉文字
 const scheduleRouter = require('./routes/schedule');// 讀書計畫
 const aiRoutes = require('./routes/ai'); // AI功能
@@ -32,6 +33,7 @@ app.use('/users', usersRouter);
 app.use('/login', loginRouter); // 登入route放到 /login
 app.use('/profile', profileRouter); // 個人資料route放到 /profile
 app.use('/api/study', studyRouter); 
+app.use('/api/rooms', roomsRoutes); // 自習室
 app.use('/api/transcribe', transcribeRouter);
 app.use('/api/schedule', scheduleRouter);
 app.use('/api/ai', aiRoutes); // AI 分析
