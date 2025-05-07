@@ -7,7 +7,7 @@ import os
 # 載入環境變數
 #load_dotenv()
 # 可以用環境變數決定 key 之後也可以用別的 不過我先直接設定
-OPENROUTER_API_KEY = "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"
+OPENROUTER_API_KEY = "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"
 YOUR_SITE_URL = "http://localhost:5000"
 YOUR_SITE_NAME = "Transcription App"
 
@@ -31,7 +31,7 @@ async def analyze_transcription(
                 "HTTP-Referer": YOUR_SITE_URL,
                 "X-Title": YOUR_SITE_NAME,
             },
-            # 這可以改
+            #這可以改
             model="deepseek/deepseek-chat-v3-0324:free",
             messages=[
                 {"role": "system", "content": "You are a helpful assistant that organizes text into notes."},
