@@ -1,16 +1,28 @@
 from fastapi import FastAPI, HTTPException, Form, UploadFile, File
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 import whisper
 import torch
 import yt_dlp
 import os
 import tempfile
 from ai import router as ai_router
+from analysis import router as analysis_router 
 
 app = FastAPI(title="Python Service", description="A general-purpose Python service")
 
+# ✅ 加入 CORS 設定（允許本地前端連線）
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # 若只允許某些來源可寫 ["http://localhost:5173"]
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # 新增 AI 分析功能
 app.include_router(ai_router)
+app.include_router(analysis_router)
 
 # 檢查是否有 GPU 可用
 device = "cuda" if torch.cuda.is_available() else "cpu"
